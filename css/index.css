@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #323232;
+  border: none;
+  font-family: Helvetica, sans-serif;
+}
+
+input, label {
+  display: block;
+  width: 100%;
+}
+
+input:focus, label:focus {
+  outline: none;
+}
+
+a {
+  color: #E60084;
+}
+
+body {
+  height: 100vh;
+  padding-top: 5vh;
+  background-image: url("../img/bg-register-page.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+#main-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #FFF;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+#main-container h1 {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 25px;
+}
