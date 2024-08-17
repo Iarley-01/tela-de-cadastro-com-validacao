@@ -5,7 +5,8 @@ class Validator {
       "data-min-length",
       "data-max-length",
       "data-email-validate",
-      "data-only-letters"
+      "data-only-letters",
+      "data-equal"
     ];
   }
   
@@ -70,6 +71,15 @@ class Validator {
     let errorMessage = "Este campo não aceita números e caracteres especiais"; 
     
     if (!re.test(inputValue)) {
+      this.printMessage(input, errorMessage);
+    }
+  }
+  
+  equal(input, inputName) {
+    let inputToCompare = document.getElementsByName(inputName)[0];
+    let errorMessage = `Este campo precisa estar igual ao ${inputName}`;
+    
+    if (input.value != inputToCompareb.value) {
       this.printMessage(input, errorMessage);
     }
   }
