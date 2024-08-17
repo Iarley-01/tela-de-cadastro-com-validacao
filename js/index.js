@@ -3,7 +3,8 @@ class Validator {
     this.validator = [
       "data-required",
       "data-min-length",
-      "data-max-length"
+      "data-max-length",
+      "data-email-validate"
     ];
   }
   
@@ -53,6 +54,14 @@ class Validator {
     }
   }
   
+  emailvalidate(input) {
+    let re = /\S+@\S+\.\S+/; 
+    let email = input.value;
+    let errorMessage = "Insira um email no padrão nome@email.com";
+    if (!re.test(email)) {
+      this.printMessage(input, errorMessage);
+    }
+  }
   
   printMessage(input, msg){
     let errorsQtd = input.parentNode.querySelector(".error-validation");
