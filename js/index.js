@@ -2,6 +2,7 @@ class Validator {
   constructor () {
     this.validator = [
       "data-min-length",
+      "data-max-length"
     ];
   }
   
@@ -29,6 +30,15 @@ class Validator {
     let errorMessage = `O campo deve ter pelo menos ${minValue} caracteres`;
     
     if (inputLength < minValue) {
+      this.printMessage(input, errorMessage);
+    }
+  }
+  
+  maxlength(input, maxValue) {
+    let inputLength = input.value.length;
+    let errorMessage = `O campo deve ter menos do que ${maxValue} caracteres`;
+    
+    if (inputLength > maxValue) {
       this.printMessage(input, errorMessage);
     }
   }
