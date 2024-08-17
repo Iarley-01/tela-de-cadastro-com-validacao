@@ -4,7 +4,8 @@ class Validator {
       "data-required",
       "data-min-length",
       "data-max-length",
-      "data-email-validate"
+      "data-email-validate",
+      "data-only-letters"
     ];
   }
   
@@ -59,6 +60,16 @@ class Validator {
     let email = input.value;
     let errorMessage = "Insira um email no padrão nome@email.com";
     if (!re.test(email)) {
+      this.printMessage(input, errorMessage);
+    }
+  }
+  
+  onlyletters(input) {
+    let re = /^[A-Za-z]+$/;
+    let inputValue = input.value;
+    let errorMessage = "Este campo não aceita números e caracteres especiais"; 
+    
+    if (!re.test(inputValue)) {
       this.printMessage(input, errorMessage);
     }
   }
