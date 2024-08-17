@@ -6,6 +6,10 @@ class Validator {
   }
   
   validate(form) {
+    let currentValidations = document.querySelectorAll("form .error-validation");
+    if (currentValidations.length > 0) {
+      this.cleanValidations(currentValidations);
+    }
     let inputs = form.getElementsByTagName("input");
     let inputsArray = [...inputs];
     
@@ -35,6 +39,10 @@ class Validator {
     let inputParent = input.parentNode;
     template.classList.remove("template");
     inputParent.appendChild(template);
+  }
+  
+  cleanValidations(validations) {
+    validations.forEach(el => el.remove());
   }
 }
 
