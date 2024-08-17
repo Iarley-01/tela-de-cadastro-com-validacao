@@ -1,6 +1,7 @@
 class Validator {
   constructor () {
     this.validator = [
+      "data-required",
       "data-min-length",
       "data-max-length"
     ];
@@ -43,12 +44,28 @@ class Validator {
     }
   }
   
+  required(input) {
+    let inputValue = input.value; 
+    if (inputValue === "") {
+      let errorMessage = "Esse campo é obrigatório";
+      
+      this.printMessage(input, errorMessage);
+    }
+  }
+  
+  
   printMessage(input, msg){
-    let template = document.querySelector(".error-validation").cloneNode();
+    let errorsQtd = input.parentNode.querySelector(".error-validation");
+    
+    if (errorsQtd == null) {
+      
+    
+    let template = document.querySelector(".error-validation").cloneNode(true);
     template.textContent = msg;
     let inputParent = input.parentNode;
     template.classList.remove("template");
     inputParent.appendChild(template);
+    }
   }
   
   cleanValidations(validations) {
